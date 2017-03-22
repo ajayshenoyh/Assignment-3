@@ -1,7 +1,6 @@
 //
 //  ResultViewController.swift
 //  Assignment3
-//
 //  Created by Ajay Shenoy on 3/8/17.
 //  Copyright © 2017 Ajay Shenoy. All rights reserved.
 //
