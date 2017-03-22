@@ -32,14 +32,15 @@ class GraphView: UIView {
         //let rightGuide:CGFloat=screenWidth-16.0
         //let bottomGuide:CGFloat=screenHeight-16.0
         //context.setFillColor(red: 0.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        let saveRatio=(ResultShared.OriginalPrice-ResultShared.DiscountPrice)/ResultShared.OriginalPrice
         context.setFillColor(0x84516D)
         context.fill(CGRect(x:leftGuide , y: topGuide, width: screenWidth*50/100-leftGuide, height: screenHeight-96.0))
         
         context.setFillColor(0xA26DEB)
-        context.fill(CGRect(x:screenWidth*50/100 , y: topGuide, width: screenWidth*50/100-leftGuide, height: (screenHeight-96.0)*CGFloat((ResultShared.OriginalPrice-ResultShared.DiscountPrice)/ResultShared.OriginalPrice)))
+        context.fill(CGRect(x:screenWidth*50/100 , y: topGuide, width: screenWidth*50/100-leftGuide, height: (screenHeight-96.0)*CGFloat(saveRatio)))
         
         context.setFillColor(0x8451BB)
-        context.fill(CGRect(x:screenWidth*50/100 , y: topGuide+(screenHeight-96)*CGFloat((ResultShared.OriginalPrice-ResultShared.DiscountPrice)/ResultShared.OriginalPrice) , width: screenWidth*50/100-leftGuide, height: (screenHeight-96.0-(screenHeight-96.0)*CGFloat((ResultShared.OriginalPrice-ResultShared.DiscountPrice)/ResultShared.OriginalPrice))))
+        context.fill(CGRect(x:screenWidth*50/100 , y: topGuide+(screenHeight-96)*CGFloat((ResultShared.OriginalPrice-ResultShared.DiscountPrice)/ResultShared.OriginalPrice) , width: screenWidth*50/100-leftGuide, height: (screenHeight-96.0-(screenHeight-96.0)*CGFloat(saveRatio))))
         
         let myText1 = "Original Price"
         let subText1="$"+String(format: "%.2f",ResultShared.OriginalPrice)
@@ -65,18 +66,18 @@ class GraphView: UIView {
             myText2.draw(at: myTextPos2, withAttributes: textAttribute)
             subText2.draw(at: CGPoint(x:leftGuide+screenWidth*50/100,y: topGuide+32.0), withAttributes:textAttribute)
             
-            let myTextPos3:CGPoint=CGPoint(x:leftGuide+screenWidth*50/100,y: topGuide+96.0+(screenHeight-96)*CGFloat((ResultShared.OriginalPrice-ResultShared.DiscountPrice)/ResultShared.OriginalPrice))
+            let myTextPos3:CGPoint=CGPoint(x:leftGuide+screenWidth*50/100,y: topGuide+96.0+(screenHeight-96)*CGFloat(saveRatio))
             myText3.draw(at: myTextPos3, withAttributes: textAttribute)
-            subText3.draw(at: CGPoint(x:leftGuide+screenWidth*50/100,y: topGuide+96.0+16.0+(screenHeight-96)*CGFloat((ResultShared.OriginalPrice-ResultShared.DiscountPrice)/ResultShared.OriginalPrice)), withAttributes:textAttribute)
+            subText3.draw(at: CGPoint(x:leftGuide+screenWidth*50/100,y: topGuide+96.0+16.0+(screenHeight-96)*CGFloat(saveRatio)), withAttributes:textAttribute)
         }
         else if(ResultShared.DiscountPrice<=ResultShared.OriginalPrice-ResultShared.OriginalPrice*90/100){
             print("In case 2")
             let myTextPos2:CGPoint=CGPoint(x:leftGuide+screenWidth*50/100,y: topGuide+16.0)
             myText2.draw(at: myTextPos2, withAttributes: textAttribute)
             subText2.draw(at: CGPoint(x:leftGuide+screenWidth*50/100,y: topGuide+32.0), withAttributes:textAttribute)
-            let myTextPos3:CGPoint=CGPoint(x:leftGuide+screenWidth*50/100,y: topGuide-188.0+(screenHeight-96)*CGFloat((ResultShared.OriginalPrice-ResultShared.DiscountPrice)/ResultShared.OriginalPrice))
+            let myTextPos3:CGPoint=CGPoint(x:leftGuide+screenWidth*50/100,y: topGuide-188.0+(screenHeight-96)*CGFloat(saveRatio))
             myText3.draw(at: myTextPos3, withAttributes: textAttribute)
-            subText3.draw(at: CGPoint(x:leftGuide+screenWidth*50/100,y: topGuide-188.0+16.0+(screenHeight-96)*CGFloat((ResultShared.OriginalPrice-ResultShared.DiscountPrice)/ResultShared.OriginalPrice)), withAttributes:textAttribute)
+            subText3.draw(at: CGPoint(x:leftGuide+screenWidth*50/100,y: topGuide-188.0+16.0+(screenHeight-96)*CGFloat(saveRatio)), withAttributes:textAttribute)
         }
         else
         {
@@ -85,9 +86,9 @@ class GraphView: UIView {
             myText2.draw(at: myTextPos2, withAttributes: textAttribute)
             subText2.draw(at: CGPoint(x:leftGuide+screenWidth*50/100,y: topGuide+32.0), withAttributes:textAttribute)
             
-            let myTextPos3:CGPoint=CGPoint(x:leftGuide+screenWidth*50/100,y: topGuide+16.0+(screenHeight-96)*CGFloat((ResultShared.OriginalPrice-ResultShared.DiscountPrice)/ResultShared.OriginalPrice))
+            let myTextPos3:CGPoint=CGPoint(x:leftGuide+screenWidth*50/100,y: topGuide+16.0+(screenHeight-96)*CGFloat(saveRatio))
             myText3.draw(at: myTextPos3, withAttributes: textAttribute)
-            subText3.draw(at: CGPoint(x:leftGuide+screenWidth*50/100,y: topGuide+32.0+(screenHeight-96)*CGFloat((ResultShared.OriginalPrice-ResultShared.DiscountPrice)/ResultShared.OriginalPrice)), withAttributes:textAttribute)
+            subText3.draw(at: CGPoint(x:leftGuide+screenWidth*50/100,y: topGuide+32.0+(screenHeight-96)*CGFloat(saveRatio)), withAttributes:textAttribute)
         }
         
     }

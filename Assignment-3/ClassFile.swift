@@ -52,10 +52,7 @@ class DiscountCalc{
     }
     func result()
     {
-        if(DollarOff>Price)
-        {
-            DollarOff=0
-        }
+    
         var DP=Price-DollarOff
         DP-=DP*Discount/100
         DP-=DP*OtherDiscount/100
@@ -64,7 +61,12 @@ class DiscountCalc{
             DP=0
         }
         DP+=DP*Tax/100
+        if(DollarOff>Price)
+        {
+            DP=0
+        }
         DiscountPrice=DP
+        
         OriginalPrice=Price
         OriginalPrice+=OriginalPrice*Tax/100
         
